@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#143524">
+<title>Scopa Calabrese</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icona-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Scopa">
+<meta name="description" content="Scopa, briscola, tressette e i giochi di Calabria. Pacciu Editore.">
+</head>
+<body>
+<div class="splash" id="preSplash" role="img" aria-label="Pacciu Editore presenta Scopa Calabrese"><div class="spframe"><img src="apertura.webp" alt=""></div><div class="sppres">presenta</div><div class="sptitle">Scopa <span>Calabrese</span></div><div class="spskip">© 2026 Pacciu Editore · Tocca per saltare</div></div>
+<!-- HOME -->
+<section class="view" id="vHome">
+  <h1 class="sr">Scopa Calabrese</h1>
+  <div class="hbar">
+    <button class="hprof" id="homeProf" aria-label="Il tuo profilo">
+      <span class="avbig" id="homeAv"></span>
+      <span class="hpinfo"><b class="nick" id="homeNick"></b><span class="xpbar" aria-hidden="true"><i id="homeXpBar"></i></span><span class="lv" id="homeLv"></span></span>
+    </button>
+    <span class="hres"><span class="hcoins" id="homeCoins"></span></span>
+    <button class="hround" id="ndHome" aria-label="Chiedi al Signor ’Nduja"><span id="ndMini"></span></button>
+    <button class="hround" id="homeGear" aria-label="Impostazioni">⚙</button>
+    <button id="homeVoice" hidden aria-pressed="true">Voce</button>
+  </div>
+  <div class="hpages" id="hpages">
+    <div class="hpage" id="hpCarte" aria-label="Carte">
+      <div class="hhello" id="homeHello"></div>
+      <img class="cover" id="coverImg" alt="Scopa Calabrese: il mazzo dei mestieri di Calabria, con il Signor ’Nduja e Bergo" hidden>
+      <div class="hsecrow"><h3 class="hsec">Gioca a carte</h3><button class="hsecl" data-go="vMazzo">Guida al mazzo ›</button></div>
+      <div class="tiles" id="tiles"></div>
+      <button class="olentry olmini" data-go="vOnline"><span class="olglobe">🌐</span><span><b>Gioca a carte online</b><small>Contro persone vere, o sfida un amico</small></span><span class="advgo">▶</span></button>
+      <div class="hmore">
+        <button data-go="vProfile"><span>👤</span>Profilo</button>
+        <button data-go="vBadges"><span>🏅</span>Badge</button>
+        <button data-go="vRank"><span>🏆</span>Classifica</button>
+        <button data-go="vMazzo"><span>🃏</span>Il mazzo</button>
+      </div>
+      <p class="note" id="homeNote"></p>
+      <button class="copy copylink" data-go="vLegal">© <span id="copyYear"></span> Pacciu Editore · Tutti i diritti riservati</button>
+    </div>
+    <div class="hpage hpadv" id="hpGiochi" aria-label="Giochi">
+      <div class="hsecrow"><h3 class="hsec">Giochi</h3><span class="hsecn">Sfide veloci, da soli o online</span></div>
+      <div class="adv" id="gameBox"></div>
+    </div>
+    <div class="hpage hpadv" id="hpAvv" aria-label="Il tuo paese">
+      <div class="hsecrow"><h3 class="hsec">Il tuo paese</h3><button class="btn ghost small" id="advRules">Cosa sono?</button></div>
+      <div class="adv" id="advBox"></div>
+    </div>
+    <div class="hpage hpadv" id="hpOnline" aria-label="Online">
+      <div class="hsecrow"><h3 class="hsec">Online</h3><span class="hsecn" id="onlNow"></span></div>
+      <button class="olentry" data-go="vOnline"><span class="olglobe">🌐</span><span><b>Gioca online</b><small>Scopa, briscola, tressette, sette e mezzo, morra, U Palluni e A Casa da Figghia contro persone vere</small></span><span class="advgo">▶</span></button>
+      <div class="homex">
+        <button class="hxb passentry" data-go="vPass"><span class="hxi">🎟️</span><b>Pass</b><small id="passHomeLv">Stagione</small><i class="shbadge red" id="passHomeBadge" hidden></i></button>
+        <button class="hxb tourentry" data-go="vTornei"><span class="hxi">🏆</span><b>Tornei</b><small>Coppe e sfide</small></button>
+        <button class="hxb frentry" data-go="vAmici"><span class="hxi">👥</span><b>Amici</b><small>Chi è online</small><i class="shbadge red" id="frHomeBadge" hidden></i></button>
+      </div>
+      <div class="adv" id="onlBox"></div>
+    </div>
+  </div>
+  <nav class="htabs" role="tablist">
+    <button role="tab" data-hp="0" aria-selected="true"><span>🃏</span>Carte</button>
+    <button role="tab" data-hp="1" aria-selected="false"><span>🎮</span>Giochi<i class="pill new" id="gamePill" hidden>!</i></button>
+    <button role="tab" data-hp="2" aria-selected="false"><span>🏡</span>Paese<i class="pill" id="advPill" hidden>!</i></button>
+    <button role="tab" data-hp="3" aria-selected="false"><span>🌐</span>Online<i class="pill" id="onlPill" hidden>!</i></button>
+  </nav>
+</section>
+
+<!-- PROFILE -->
+<section class="view" id="vProfile" hidden>
+  <div class="topbar"><h2>Il tuo profilo</h2><button class="btn ghost small" data-go="vHome">Menu</button></div>
+  <div class="sheetv">
+    <div id="acctBox"></div>
+    <div id="pgBox"></div>
+    <h3>Soprannome</h3>
+    <p>È il nome che vedono gli altri in classifica.</p>
+    <form class="field" id="nickForm">
+      <label for="nickIn" hidden>Soprannome</label>
+      <input id="nickIn" maxlength="20" placeholder="Es. U Zampugnaru" autocomplete="off">
+      <button class="btn" type="submit">Salva</button>
+    </form>
+    <h3>Icona</h3>
+    <p>Sali di livello per sbloccare i mestieri del mazzo e scoprire la loro storia. Tocca un'icona per sceglierla e leggerla.</p>
+    <div class="avgrid" id="avGrid"></div>
+    <div id="storyBox"></div>
+    <h3>Statistiche</h3>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<!-- MORRA -->
+<section class="view" id="vMorra" hidden>
+  <div class="topbar"><h2>La Morra</h2><span class="tbr"><button class="btn ghost small" id="morraRules">Regole</button><button class="btn ghost small" data-go="vHome">Menu</button></span></div>
+  <div class="sheetv" id="morraBox"></div>
+</section>
+
+<!-- PESCA -->
+<section class="view" id="vPesca" hidden>
+  <div class="topbar"><h2>La Pesca</h2><span class="tbr"><button class="btn ghost small" id="pescaRules">Regole</button><button class="btn ghost small" data-go="vHome">Menu</button></span></div>
+  <div class="resbar"></div>
+  <div class="sheetv" id="pescaBox"></div>
+</section>
+
+<!-- ONLINE -->
+<section class="view" id="vOnline" hidden>
+  <div class="topbar"><h2>Gioca online</h2><button class="btn ghost small" data-go="vHome">Menu</button></div>
+  <div class="sheetv" id="onlineBox"></div>
+</section>
+
+<!-- NOTE LEGALI -->
+<section class="view" id="vLegal" hidden>
+  <div class="topbar"><h2>Note legali</h2><button class="btn ghost small" data-go="vHome">Menu</button></div>
+  <div class="sheetv legal" id="legalBox"></div>
+</section>
+
+<!-- CONQUISTA -->
+<section class="view" id="vConq" hidden>
+  <div class="topbar"><h2>Conquista</h2><span class="tbr"><button class="btn ghost small" id="conqRules">Regole</button><button class="btn ghost small" data-go="vHome">Menu</button></span></div>
+  <div class="resbar"></div>
+  <div class="sheetv" id="conqBox"></div>
+</section>
+
+<!-- CLAN -->
+<section class="view" id="vClan" hidden>
+  <div class="topbar"><h2>Clan</h2><button class="btn ghost small" data-go="vHome">Menu</button></div>
+  <div class="sheetv" id="clanBox"></div>
+</section>
+
+<!-- NEGOZIO -->
+<section class="view" id="vShop" hidden>
+  <div class="topbar"><h2>Il mazzo vero</h2><button class="btn ghost small" data-go="vHome">Menu</button></div>
+  <div class="sheetv" id="shopBox"></div>
+</section>
+
+<!-- MAZZO -->
+<section class="view" id="vMazzo" hidden>
+  <div class="topbar"><h2>Il mazzo</h2><button class="btn ghost small" data-go="vHome">Menu</button></div>
+  <div class="sheetv" id="mazzoBox"></div>
+</section>
+
+<!-- BADGES -->
+<section class="view" id="vBadges" hidden>
+  <div class="topbar"><h2>Badge</h2><button class="btn ghost small" data-go="vHome">Menu</button></div>
+  <div class="sheetv"><div class="badges" id="badgeList"></div></div>
+</section>
+
+<!-- BAULI -->
+<section class="view" id="vChests" hidden>
+  <div class="topbar"><h2>Bauli</h2><span class="tbr"><button class="btn ghost small" id="chestRules">Regole</button><button class="btn ghost small" data-go="vHome">Menu</button></span></div>
+  <div class="resbar"></div>
+  <div class="sheetv">
+    <p>Ogni vittoria ti fa trovare un baule (a volte anche una sconfitta). Sblocchi un baule alla volta: più è prezioso, più tempo ci vuole. Dentro ci sono carlini, acqua e concime per l’albero di Bergo e punti esperienza.</p>
+    <div id="chestVideo"></div>
+    <div id="chestAll"></div>
+    <div class="chests" id="chestGrid"></div>
+    <h3>Tipi di baule</h3>
+    <ul class="chestinfo" id="chestInfo"></ul>
+  </div>
+</section>
+
+<!-- PAESE -->
+<section class="view" id="vPaese" hidden>
+  <div class="topbar"><h2>Il Paese</h2><span class="tbr"><button class="btn ghost small" id="paeseRules">Regole</button><button class="btn ghost small" data-go="vHome">Menu</button></span></div>
+  <div class="resbar"></div>
+  <div class="sheetv">
+    <div class="tabs" role="tablist" id="paeseTabs">
+      <button role="tab" data-pt="tree" aria-selected="true">Albero di Bergo</button>
+      <button role="tab" data-pt="sal" aria-selected="false">Salumificio</button>
+      <button role="tab" data-pt="sheep" aria-selected="false">Pecore</button>
+      <button role="tab" data-pt="help" aria-selected="false">Aiutanti e botteghe</button>
+    </div>
+    <div id="pTree"><p>Fai crescere l’albero di Bergo con l’acqua e il concime che trovi nei bauli. Quando è carico di bergamotti, raccoglili e guadagni carlini.</p><div class="treebox" id="treeBox"></div></div>
+    <div id="pSal" hidden><div id="salBox"></div></div>
+    <div id="pSheep" hidden><div id="sheepBox"></div></div>
+    <div id="pHelp" hidden><p>I personaggi del mazzo vengono ad aiutarti. Assumili con i carlini o con le tessere che trovi nei bauli più preziosi.</p><div id="helperList"></div></div>
+  </div>
+</section>
+
+<!-- RANK -->
+<section class="view" id="vRank" hidden>
+  <div class="topbar"><h2>Classifica</h2><button class="btn ghost small" data-go="vHome">Menu</button></div>
+  <div class="sheetv">
+    <div class="tabs" role="tablist" id="rankTabs">
+      <button role="tab" data-k="xp" aria-selected="true">Livello</button>
+      <button role="tab" data-k="scopa" aria-selected="false">Scopa</button>
+      <button role="tab" data-k="briscola" aria-selected="false">Briscola</button>
+      <button role="tab" data-k="sette" aria-selected="false">Sette e mezzo</button>
+      <button role="tab" data-k="tressette" aria-selected="false">Tressette</button>
+      <button role="tab" data-k="solitario" aria-selected="false">Solitario</button>
+    </div>
+    <p id="rankNote"></p>
+    <table class="lb"><tbody id="rankBody"></tbody></table>
+  </div>
+</section>
+
+<!-- GAME -->
+<section class="view" id="vGame" hidden>
+  <div class="topbar">
+    <button class="btn ghost small" id="quitBtn">Menu</button>
+    <h2 id="gTitle"></h2>
+    <button class="btn ghost small" id="rulesBtn">Regole</button>
+    <button class="btn ghost small audioBtn musicBtn" aria-pressed="true">Musica</button>
+    <button class="btn ghost small audioBtn" id="audioBtn" aria-pressed="true">Voce</button>
+    <div class="score" id="gScore"></div>
+  </div>
+  <div class="row"><div class="opp" id="opp"></div><div class="side" id="oppSide"></div></div>
+  <div class="table" id="table"></div>
+  <div class="row"><div class="deck" id="deckBox"></div><div class="side" id="youSide"></div></div>
+  <div class="bar" id="bar" aria-live="polite"></div>
+  <div class="hand" id="hand"></div>
+</section>
+<div id="layer"></div>
+
+<script src="web.js"></script>
+<script src="data-carte.js"></script>
+<script src="data-copertina.js"></script>
+<script src="data-icone.js"></script>
+<script src="storie.js"></script>
+<script src="app-01.js"></script>
+<script src="musica.js"></script>
+<script src="signor-nduja.js"></script>
+<script src="bergo.js"></script>
+<script src="lingua.js"></script>
+<script src="app-02.js"></script>
+<script src="paese.js"></script>
+<script src="gatta.js"></script>
+<script src="pecore.js"></script>
+<script src="mazzo.js"></script>
+<script src="social.js"></script>
+<script src="legale.js"></script>
+<script src="data-personaggi.js"></script>
+<script src="conquista.js"></script>
+<script src="firebase.js"></script>
+<script src="online.js"></script>
+<script src="cloud.js"></script>
+<script src="morra.js"></script>
+<script src="pesca.js"></script>
+<script src="telaio.js"></script>
+<script src="drink.js"></script>
+<script src="tressette.js"></script>
+<script src="solitario.js"></script>
+<script src="energia.js"></script>
+<script src="nickname.js"></script>
+<script src="paesi-data.js"></script>
+<script src="paesani.js"></script>
+<script src="aiuti.js"></script>
+<script src="tornei.js"></script>
+<script src="amici.js"></script>
+<script src="pass.js"></script>
+<script src="calcio.js"></script>
+<script src="carriera.js"></script>
+<script src="casa.js"></script>
+<script src="sfida.js"></script>
+<script src="pixi.min.js"></script>
+<script src="borgo.js"></script>
+<script src="notifiche.js"></script>
+<script src="data-apertura.js"></script>
+<script src="app-03.js"></script>
+<script src="ingrandisci.js"></script>
+<script src="anim.js"></script>
+</body>
+</html>
