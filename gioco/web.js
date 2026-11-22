@@ -1,6 +1,7 @@
 /* Versione web (iPhone): niente pubblicità, funziona anche offline. */
 (function () {
   window.WEB_APP = true;
+  window.SC_WEB = true; // online, amici, Paesani e tornei anche sul web
   // nessun video: i premi diventano il regalo di Bergo (max 3 al giorno)
   window.REWARDED_AD_PROVIDER = function () { return 'noad'; };
   if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
